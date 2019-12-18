@@ -1,4 +1,3 @@
-
 data "template_file" "zk_startup" {
   count    = "${var.servers}"
   template = "${file("${path.module}/scripts/zk-startup.sh")}"
@@ -15,7 +14,7 @@ resource "google_compute_instance" "zookeeper" {
 
   boot_disk {
     initialize_params {
-      image = "packer-zoo"
+      image = "debian-7-wheezy-v20150127"
     }
   }
 

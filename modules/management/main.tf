@@ -1,6 +1,6 @@
 resource "google_compute_instance" "zoonavigator" {
   name         = "zoonavigator"
-  machine_type = "g1-small"
+  machine_type = "f1-micro"
   zone         = "${var.zone}"
   tags         = ["ssh", "http-server"]
 
@@ -23,7 +23,7 @@ resource "google_compute_instance" "zoonavigator" {
 
 resource "google_compute_instance" "kafka_manager" {
   name         = "kafka-manager"
-  machine_type = "g1-small"
+  machine_type = "f1-micro"
   zone         = "${var.zone}"
   tags         = ["ssh", "http-server"]
 

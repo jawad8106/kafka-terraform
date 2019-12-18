@@ -21,10 +21,11 @@ resource "google_compute_instance" "kafka-broker" {
   machine_type = "n1-standard-2"
   zone         = "${var.zones[count.index]}"
   tags         = ["ssh"]
-
+  allow_stopping_for_update = true
+  
   boot_disk {
     initialize_params {
-      image = "packer-kafka"
+      image = "debian-7-wheezy-v20150127"
     }
   }
 

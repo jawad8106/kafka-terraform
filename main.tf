@@ -1,6 +1,9 @@
 provider "google" {
-  credentials = "${file("test-kafka-tf-201909-680fab95621e.json")}"
-  project     = "test-kafka-tf-201909"
+  credentials = "service_account.json"
+  project     = "kafka-gcp-262322"
+  region      = "us-central1"
+  zone        = "us-central1-a"
+  
 }
 
 module "network" {
@@ -19,7 +22,7 @@ module "zookeeper" {
 
 module "kafka" {
   source = "./modules/kafka"
-  servers = 3
+  servers = "3"
   subnet = "${module.network.kafka_subnet}"
   zones = "${var.clusters_zones}"
   zookeeper_up = "${module.zookeeper.cluster_up}"
